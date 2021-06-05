@@ -1,30 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>My First Blog</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">My Blog</a></h1>
-        </header>
+<header>
+    <h1><a href="/">My Blog</a></h1>
+</header>
 
-        <article>            
-            <h2><a href="">My first post</a></h2>
-            <p>Learning at Home during Lockdown.</p>
-            <time>published: 03.06.2021, 12:14</time>
-        </article>
-
-        <article>           
-            <h2><a href="">My second post</a></h2>
-            <p>Science and health.</p>
-            <time>published: 04.06.2021, 12:14</time>
-        </article>
-
-        <article>
-            <h2><a href="">My third post</a></h2>
-            <p>The lockdown affected men and women equally.</p>
-            <time>published: 05.06.2021, 12:14</time>
-        </article>
-
-    </body>
-</html>
+{% for post in posts %}
+    <article>
+        <time>published: {{ post.published_date }}</time>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </article>
+{% endfor %}
